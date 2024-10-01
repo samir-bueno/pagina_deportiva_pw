@@ -1,9 +1,9 @@
 // src/components/Header.jsx
-import React, { useState } from 'react';
-import '/home/etec/Documentos/uniondepo-pw/vite-project/src/header.css';
-import searchIcon from '../assets/search.png';
-import loginIcon from '../assets/login.png';
-import Modal from './Modal';
+import React, { useState } from "react";
+import "/home/etec/Documentos/uniondepo-pw/vite-project/src/header.css";
+import searchIcon from "../assets/search.png";
+import loginIcon from "../assets/login.png";
+import Modal from "./Modal";
 
 const Header = () => {
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -13,28 +13,36 @@ const Header = () => {
   return (
     <header>
       <div className="logo">
-        <h1>Zero Comics</h1>
+        <h1>Uniondepo</h1>
       </div>
-      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
+      <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
         <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Acerca de</a></li>
-          <li><a href="/contact">Contacto</a></li>
-          <li><a href="/comics">Comics</a></li>
+          <li>
+            <a href="/">Inicio</a>
+          </li>
+          <li>
+            <a href="/about">Acerca de</a>
+          </li>
+          <li>
+            <a href="/contact">Contacto</a>
+          </li>
+          <li>
+            <a href="/comics">Equipos</a>
+          </li>
         </ul>
       </nav>
       <div className="action-buttons">
-        <img 
-          src={searchIcon} 
-          alt="Buscar" 
-          className="icon" 
-          onClick={() => setSearchOpen(true)} 
+        <img
+          src={searchIcon}
+          alt="Buscar"
+          className="icon"
+          onClick={() => setSearchOpen(true)}
         />
-        <img 
-          src={loginIcon} 
-          alt="Iniciar sesión" 
-          className="icon" 
-          onClick={() => setLoginOpen(true)} 
+        <img
+          src={loginIcon}
+          alt="Iniciar sesión"
+          className="icon"
+          onClick={() => setLoginOpen(true)}
         />
         <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
           <div className="bar"></div>
@@ -42,14 +50,14 @@ const Header = () => {
           <div className="bar"></div>
         </div>
       </div>
-      <Modal 
-        isOpen={isSearchOpen} 
-        onClose={() => setSearchOpen(false)} 
+      <Modal
+        isOpen={isSearchOpen}
+        onClose={() => setSearchOpen(false)}
         type="search"
       />
-      <Modal 
-        isOpen={isLoginOpen} 
-        onClose={() => setLoginOpen(false)} 
+      <Modal
+        isOpen={isLoginOpen}
+        onClose={() => setLoginOpen(false)}
         type="login"
       />
     </header>
