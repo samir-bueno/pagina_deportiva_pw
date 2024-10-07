@@ -1,33 +1,57 @@
 // src/components/Header.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "/home/etec/Documentos/uniondepo-pw/vite-project/src/header.css";
-import searchIcon from "../assets/search.png";
-import loginIcon from "../assets/login.png";
+import searchIcon from "../assets/buscar.png";
+import loginIcon from "../assets/nueva-cuenta.png";
 import Modal from "./Modal";
 
 const Header = () => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isLoginOpen, setLoginOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > lastScrollY) {
+        setVisible(false); // Scroll hacia abajo
+      } else {
+        setVisible(true); // Scroll hacia arriba
+      }
+      setLastScrollY(window.scrollY);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
-    <header>
+    <header className={`header ${isVisible ? 'visible' : 'hidden'}`}>
+      <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
+      
       <div className="logo">
         <h1>Uniondepo</h1>
       </div>
+      
       <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
         <ul>
           <li>
             <a href="/">Inicio</a>
           </li>
           <li>
-            <a href="/about">Acerca de</a>
+            <a href="/Products">Productos</a>
           </li>
           <li>
             <a href="/contact">Contacto</a>
-          </li>
-          <li>
-            <a href="/comics">Equipos</a>
           </li>
         </ul>
       </nav>
@@ -44,11 +68,6 @@ const Header = () => {
           className="icon"
           onClick={() => setLoginOpen(true)}
         />
-        <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
       </div>
       <Modal
         isOpen={isSearchOpen}

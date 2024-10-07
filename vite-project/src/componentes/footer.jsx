@@ -1,49 +1,79 @@
+import '../footer.css';
+
 export default function Footer() {
     return (
-        <>
-            <footer className="footer">
-                <div className="contenedor">
-                    <div className="columna_izquierda">
-                        <div className="lista"> 
-                            <div className="lista_footer">
-                                <h4>MÉTODO DE PAGOS</h4>
-                            </div> 
-                            <div className="lista_de_contenidos">
-                                <img height="46" width="74" src="https://cdn.tiendanegocio.com/static/payment_method/MERCADOPAGO.png" 
-                                    id="MERCADOPAGO" alt="MERCADOPAGO" loading="lazy" fetchpriority="low"/>
-                            </div>
-                            <div className="lista_footer">
-                                <h4>MÉTODO DE ENVÍO</h4>
-                            </div>
-                            <div className="lista_de_contenidos">
-                                <img height="46" width="74" src="https://cdn.tiendanegocio.com/static/shipment_method/acordar.png"
-                                    id="acordar" alt="acordar" loading="lazy" fetchpriority="low" />
-                            </div>   
-                        </div>
+        <footer className="footer">
+            <div className="contenedor">
+                <div className="columna">
+                    <h4>MÉTODO DE PAGO</h4>
+                    <img className='tamaño_imagen_1'           
+                        src="https://cdn.tiendanegocio.com/static/payment_method/MERCADOPAGO.png" 
+                        alt="Mercado Pago" 
+                    />
+                    <h4>MÉTODO DE ENVÍO</h4>
+                    <img className='tamaño_imagen_1'
+                        src="https://cdn.tiendanegocio.com/static/shipment_method/acordar.png"
+                        alt="Punto de encuentro" 
+                    />
+                </div>
+                <div className="columna">
+                    <h4 style={{ textAlign: 'center' }}>CONTACTO</h4>
+                    <div className="contacto-item">
+                        <img 
+                            className='icono2' 
+                            src="https://cdn-icons-png.flaticon.com/512/561/561127.png" 
+                            alt="Email" 
+                        />
+                        <span> uniondepo@gmail.com</span>
                     </div>
-
-                    <div className="columna_derecha">
-                        <div className="lista">
-                            <div className="lista_footer">
-                                <h4>CONTACTANOS</h4>
-                            </div>
-                            <div className="lista_contactos">
-                                <div>
-                                        <li className="evento">
-                                            <a>
-                                                <app-icon fill="1" icon="home" class="icon" _nghost-1-c16=""><i _ngcontent-1-c16=""
-                                                class="icon-text"><svg xmlns="http://www.w3.org/2000/svg"
-                                                height="40" viewBox="0 -960 960 960" width="40">
-                                                <path fill="currentColor" d="M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z">
-                                                </path></svg></i></app-icon>
-                                            </a>
-                                        </li>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="contacto-item">
+                        <img 
+                            className='icono2' 
+                            src="https://cdn-icons-png.flaticon.com/512/724/724664.png" 
+                            alt="Teléfono" 
+                        />
+                        <span style={{width:"150px"}}> +123 456 7890</span>
+                    </div>
+                    <div className="contacto-item">
+                        <img 
+                            className='icono2'  
+                            src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png"
+                            alt="Ubicación" 
+                        />
+                        <span style={{width:"150px"}}> Av. Caballito</span>
+                    </div>
+                    <div className="contacto-item">
+                        <img 
+                            className='icono2' 
+                            src="https://cdn-icons-png.flaticon.com/512/67/67657.png"
+                            alt="Signo de arrepentimiento" 
+                        />
+                        <span style={{width:"150px"}}>Arrepentimiento</span>
                     </div>
                 </div>
-            </footer>
-        </>
+                <div className="columna">
+                    <h4>REDES SOCIALES</h4>
+                    <div className="contacto-item">
+                        <img 
+                            className='icono2' 
+                            src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png"
+                            alt="Facebook" 
+                            height="40"
+                            width="40"
+                        />
+                        <a href="https://www.facebook.com" className="redes">Facebook</a>
+                    </div>
+                    <div className="contacto-item">
+                        <img 
+                            className='icono2' 
+                            src="https://cdn-icons-png.flaticon.com/512/87/87390.png"                            alt="Facebook" 
+                            height="40"
+                            width="40"
+                        />
+                        <a href="https://www.instagram.com" className="redes">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     );
 }

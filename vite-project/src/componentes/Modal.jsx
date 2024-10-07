@@ -1,6 +1,6 @@
 // src/components/Modal.jsx
 import React from 'react';
-import '/home/etec/Documentos/uniondepo-pw/vite-project/src/Modal.css';
+import "/home/etec/Documentos/uniondepo-pw/vite-project/src/Modal.css"
 
 const Modal = ({ isOpen, onClose, type }) => {
   if (!isOpen) return null;
@@ -21,7 +21,6 @@ const Modal = ({ isOpen, onClose, type }) => {
             <input type="text" placeholder="Usuario" className="login-input" />
             <input type="password" placeholder="Contraseña" className="login-input" />
             <button className="login-button">Entrar</button>
-
           </div>
         )}
       </div>
@@ -30,4 +29,3 @@ const Modal = ({ isOpen, onClose, type }) => {
 };
 
 export default Modal;
-

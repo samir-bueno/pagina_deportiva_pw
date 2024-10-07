@@ -49,6 +49,87 @@ nav ul li a:hover {
   background-color: rgba(97, 218, 251, 0.2); /* Fondo suave al pasar el mouse */
   color: #ffffff; /* Cambiar color del texto al pasar el mouse */
 }
+/* src/header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centrar verticalmente los elementos en el header */
+  padding: 10px 20px;
+  background-color: #296d04;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Asegúrate de que la barra de navegación esté por encima */
+  height: 80px; /* Este es el alto del header */
+  box-shadow: 0 2px 5px rgba(16, 202, 235, 0.89);
+  transition: transform 0.3s ease;
+}
+
+.header.hidden {
+  transform: translateY(-100%); /* Oculta la barra al bajar */
+}
+
+.header.visible {
+  transform: translateY(0); /* Muestra la barra al subir */
+}
+
+.logo {
+  display: flex; /* Añadir display flex para centrar el contenido */
+  align-items: center; /* Centrar verticalmente el logo */
+}
+
+.logo h1 {
+  margin: 0;
+  color: #000000; /* Color del texto del logo */
+}
+
+.hamburger {
+  display: none; /* Oculta en pantallas grandes */
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 10px; /* Espacio al lado del logo */
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: #fffefe; /* Color de las barras del menú */
+  margin: 3px 0;
+}
+
+.main-content {
+  margin-top: 80px; /* Ajusta según la altura de tu header */
+}
+
+.nav {
+  display: flex;
+  transition: max-height 0.3s ease;
+  z-index: 1000; /* Asegúrate de que la navegación esté por encima de otros elementos */
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  margin: 0 15px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffff; /* Color de los enlaces */
+  padding: 5px 10px; /* Espaciado alrededor de los enlaces */
+  border-radius: 5px; /* Bordes redondeados para un efecto de botón */
+  transition: background-color 0.3s ease; /* Transición para el efecto hover */
+}
+
+.nav a:hover {
+  background-color: rgba(106, 0, 245, 0.637); /* Efecto hover */
+}
 
 .action-buttons {
   display: flex;
@@ -111,5 +192,37 @@ nav ul li a:hover {
   .icon {
     width: 20px; /* Reduce el tamaño de los iconos */
     height: 20px;
+  }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Muestra el ícono del menú en pantallas pequeñas */
+  }
+
+  .nav {
+    display: none; /* Esconde la navegación en pantallas pequeñas */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Ajusta según el alto del header */
+    left: 0;
+    right: 0;
+    background-color: #56b300ad; /* Fondo del menú desplegable */
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.89);
+  }
+
+  .nav.open {
+    display: flex; /* Muestra la navegación cuando el menú está abierto */
+  }
+
+  .action-buttons {
+    display: flex; /* Muestra los iconos en pantallas pequeñas */
+  }
+
+  .logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center; /* Centra el logo */
   }
 }
