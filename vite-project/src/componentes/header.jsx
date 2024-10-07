@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from "react";
-import "/home/alumnos_etec/Documentos/uniondepo-pw/vite-project/src/header.css";
+import "/home/etec/Documentos/uniondepo-pw/vite-project/src/header.css";
 import searchIcon from "../assets/webos.webp";
 import loginIcon from "../assets/pid.jpg";
 import Modal from "./Modal";
@@ -48,13 +48,10 @@ const Header = () => {
             <a href="/">Inicio</a>
           </li>
           <li>
-            <a href="/about">Acerca de</a>
+            <a href="/Products">Productos</a>
           </li>
           <li>
             <a href="/contact">Contacto</a>
-          </li>
-          <li>
-            <a href="/comics">Equipos</a>
           </li>
         </ul>
       </nav>

@@ -2,15 +2,15 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Centrar verticalmente los elementos en el header */
   padding: 10px 20px;
   background-color: #ffa3a3;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  height: 80px;
+  z-index: 1000; /* Asegúrate de que la barra de navegación esté por encima */
+  height: 80px; /* Este es el alto del header */
   box-shadow: 0 2px 5px rgba(16, 202, 235, 0.89);
   transition: transform 0.3s ease;
 }
@@ -21,6 +21,11 @@
 
 .header.visible {
   transform: translateY(0); /* Muestra la barra al subir */
+}
+
+.logo {
+  display: flex; /* Añadir display flex para centrar el contenido */
+  align-items: center; /* Centrar verticalmente el logo */
 }
 
 .logo h1 {
@@ -42,9 +47,14 @@
   margin: 3px 0;
 }
 
+.main-content { 
+  margin-top: 80px; /* Ajusta según la altura de tu header */
+}
+
 .nav {
   display: flex;
   transition: max-height 0.3s ease;
+  z-index: 1000; /* Asegúrate de que la navegación esté por encima de otros elementos */
 }
 
 .nav ul {
