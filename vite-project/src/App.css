@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 /* src/App.css o archivo principal de estilos */
 body {
   background-color: #f0f0f0; /* Fondo suave */
   margin: 0;
-  font-family: 'Arial', sans-serif; /* Fuente global */
+  font-family: "Arial", sans-serif; /* Fuente global */
   color: #333; /* Color del texto general */
 }
 
@@ -14,7 +10,6 @@ body {
 main {
   padding: 80px 20px; /* Espaciado para evitar el header fijo */
 }
-
 
 #root {
   max-width: 1280px;
@@ -58,5 +53,3 @@ main {
 .read-the-docs {
   color: #888;
 }
->>>>>>> a118686044988cb1601b1af318c986512f89ec37
->>>>>>> 891b0405e35c407741cf27a71deb9f4c5bcb37d5

@@ -1,0 +1,57 @@
+/* Diseño del footer */
+.footer {
+  padding: 28px 0 32px;
+  display: flex; /* Cambiado a flex para que las columnas estén al lado */
+  justify-content: space-between; /* Espacio entre columnas */
+}
+
+.contenedor {
+  display: flex; /* Mantiene el uso de flexbox para el contenedor */
+  width: 100%; /* Asegúrate de que ocupe todo el ancho */
+}
+
+.columna_izquierda {
+  display: flex;
+  flex-direction: column; /* Mantiene los elementos en columna */
+  margin-right: 20px; /* Espacio entre columnas */
+}
+
+.columna_derecha {
+  display: flex;
+  flex-direction: column; /* Mantiene los elementos en columna */
+}
+
+.lista {
+  width: 100%;
+  min-width: 0;
+  padding: 0 16px;
+}
+
+.lista_footer {
+  color: var(--color_footer_text);
+  font-size: 22px;
+  font-weight: 500;
+  cursor: default !important;
+}
+
+.lista_de_contenidos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 600px;
+}
+
+.lista_contactos {
+  display: flex;
+  flex-direction: column;
+}
+
+.numero_evento {
+  transition: 0.5s;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-behavior: normal;
+}
+/* Fin del diseño del footer */
