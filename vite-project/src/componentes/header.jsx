@@ -1,8 +1,8 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from "react";
-import "/home/etec/Documentos/uniondepo-pw/vite-project/src/header.css";
-import searchIcon from "../assets/webos.webp";
-import loginIcon from "../assets/pid.jpg";
+import "/home/alumnos_etec/Documentos/uniondepo-pw/vite-project/src/header.css";
+import searchIcon from "../assets/buscar.png";
+import loginIcon from "../assets/nueva-cuenta.png";
 import Modal from "./Modal";
 
 const Header = () => {

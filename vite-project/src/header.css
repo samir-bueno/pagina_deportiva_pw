@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center; /* Centrar verticalmente los elementos en el header */
   padding: 10px 20px;
-  background-color: #ffa3a3;
+  background-color: #296d04;
   position: fixed;
   top: 0;
   left: 0;
@@ -43,7 +43,7 @@
 .bar {
   height: 3px;
   width: 25px;
-  background-color: #333; /* Color de las barras del menú */
+  background-color: #fffefe; /* Color de las barras del menú */
   margin: 3px 0;
 }
 
@@ -70,14 +70,14 @@
 
 .nav a {
   text-decoration: none;
-  color: #000000; /* Color de los enlaces */
+  color: #ffffff; /* Color de los enlaces */
   padding: 5px 10px; /* Espaciado alrededor de los enlaces */
   border-radius: 5px; /* Bordes redondeados para un efecto de botón */
   transition: background-color 0.3s ease; /* Transición para el efecto hover */
 }
 
 .nav a:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Efecto hover */
+  background-color: rgba(106, 0, 245, 0.637); /* Efecto hover */
 }
 
 .action-buttons {
@@ -105,7 +105,7 @@
     top: 60px; /* Ajusta según el alto del header */
     left: 0;
     right: 0;
-    background-color: #ffffff; /* Fondo del menú desplegable */
+    background-color: #56b300ad; /* Fondo del menú desplegable */
     box-shadow: 0 2px 5px rgba(255, 0, 0, 0.89);
   }
 
