@@ -6,7 +6,6 @@ header {
   background-color: #1c1c1e; /* Color de fondo más oscuro */
   padding: 10px 20px;
   color: #ffffff; /* Color de texto blanco */
-  width: 100%; /* Asegúrate de que use el 100% del ancho */
   position: fixed;
   top: 0;
   left: 0;
