@@ -1,6 +1,6 @@
 .footer {
   padding: 20px;
-  background-color:grey;/* Color de fondo */
+  background:#343434;/* Color de fondo */
   display: flex;
   justify-content: space-between; /* Espacio entre columnas */
   border-top: 1px solid #ddd; /* Línea superior */
@@ -49,4 +49,8 @@ h4 {
   margin-right: 8px; /* Espacio entre el ícono y el texto */
   height: 40px;
   width: 50px; 
+}
+
+.color_blanco {
+  color: white;
 }
