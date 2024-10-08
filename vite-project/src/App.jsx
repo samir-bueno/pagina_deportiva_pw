@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
         <div className="main-content" style={{ marginTop: '80px' }}>
-
+        
           <Body
             link={"./imagenes/remera.jpeg"}
             descripcion={"Remera royal"}

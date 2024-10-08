@@ -56,21 +56,11 @@ export default function Footer() {
                     <div className="contacto-item">
                         <img 
                             className='icono2' 
-                            src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png"
-                            alt="Facebook" 
-                            height="40"
-                            width="40"
-                        />
-                        <a href="https://www.facebook.com" className="redes">Facebook</a>
-                    </div>
-                    <div className="contacto-item">
-                        <img 
-                            className='icono2' 
                             src="https://cdn-icons-png.flaticon.com/512/87/87390.png"                            alt="Facebook" 
                             height="40"
                             width="40"
                         />
-                        <a href="https://www.instagram.com" className="redes">Instagram</a>
+                        <a href="https://www.instagram.com/camisetas_f.m/" className="redes">Instagram</a>
                     </div>
                 </div>
             </div>
