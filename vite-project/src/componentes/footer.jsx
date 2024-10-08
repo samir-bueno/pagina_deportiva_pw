@@ -3,9 +3,9 @@ import '../footer.css';
 
 export default function Footer() {
    return (
-       <footer className="footer">
-           <div className="contenedor">
-               <div className="columna">
+       <footer className="footer" id= "contacto">
+           <div className="contenedor contenedor2">
+               <div className="columna columna2">
                    <h4 className="color_blanco">MÉTODO DE PAGO</h4>
                    <img className='tamaño_imagen_1'          
                        src="https://cdn.tiendanegocio.com/static/payment_method/MERCADOPAGO.png"
@@ -17,7 +17,7 @@ export default function Footer() {
                        alt="Punto de encuentro"
                    />
                </div>
-               <div className="columna">
+               <div className="columna columna2">
                    <h4 style={{ textAlign: 'center' }} className="color_blanco">CONTACTO</h4>
                    <div className="contacto-item">
                        <img
@@ -52,7 +52,7 @@ export default function Footer() {
                        <span style={{width:"150px"}} className="color_blanco">Arrepentimiento</span>
                    </div>
                </div>
-               <div className="columna">
+               <div className="columna columna2">
                    <h4 className="color_blanco">REDES SOCIALES</h4>
                    <div className="contacto-item">
                        <img

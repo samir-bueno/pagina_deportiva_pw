@@ -64,4 +64,17 @@
   color: white;
  }
  
+ /* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenedor2 {
+      flex-direction: column; /* Cambiar a columna en móviles */
+      align-items: center; /* Centrar columnas */
+  }
+
+  .columna2 {
+      flex: 1 1 100%; /* Cada columna ocupa el 100% en móviles */
+      margin: 10px 0; /* Espacio entre columnas */
+      padding: 0; /* Elimina el padding en móviles */
+  }
+}
  
