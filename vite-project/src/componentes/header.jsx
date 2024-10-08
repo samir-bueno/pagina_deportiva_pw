@@ -13,7 +13,7 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (window.scrollY > lastScrollY) {
         setVisible(false); // Scroll hacia abajo
       } else {
@@ -31,27 +31,27 @@ const Header = () => {
   }, [lastScrollY]);
 
   return (
-    <header className={`header ${isVisible ? 'visible' : 'hidden'}`}>
+    <header className={`header ${isVisible ? "visible" : "hidden"}`}>
       <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
-      
+
       <div className="logo">
         <h1>Uniondepo</h1>
       </div>
-      
+
       <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
         <ul>
           <li>
             <a href="/">Inicio</a>
           </li>
           <li>
-            <a href="/Products">Productos</a>
+            <a href="#productos">Productos</a>
           </li>
           <li>
-            <a href="/contact">Contacto</a>
+            <a href="#contacto">Contacto</a>
           </li>
         </ul>
       </nav>
