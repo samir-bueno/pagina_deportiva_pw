@@ -1,80 +1,87 @@
 .footer {
   padding: 20px;
-  background:#343434;/* Color de fondo */
+  background: #343434; /* Color de fondo */
   display: flex;
   justify-content: space-between; /* Espacio entre columnas */
   border-top: 1px solid #ddd; /* Línea superior */
- }
- 
- 
- .contenedor {
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+}
+
+.contenedor {
   display: flex;
   width: 100%;
- }
- 
- 
- h4 {
+}
+
+h4 {
   color: #333; /* Color de encabezado */
   margin-bottom: 10px; /* Espacio debajo del encabezado */
- }
- 
- 
- .redes {
+}
+
+.redes {
   display: block; /* Cada enlace en una nueva línea */
   color: #007bff; /* Color de enlace */
   text-decoration: none; /* Sin subrayado */
   margin-bottom: 5px; /* Espacio entre enlaces */
- }
- 
- 
- .redes:hover {
+}
+
+.redes:hover {
   text-decoration: underline; /* Subrayado al pasar el ratón */
- }
- 
- 
- .tamaño_imagen_1 {
-  width: 100;
-  height: 50;
- }
- 
- 
- .columna {
+}
+
+.tamaño_imagen_1 {
+  width: 100px; /* Asegúrate de incluir unidades */
+  height: 50px; /* Asegúrate de incluir unidades */
+}
+
+.columna {
   text-align: center; /* Centra el contenido de la columna */
   flex: 1; /* Cada columna ocupa el mismo espacio */
   padding: 0 20px; /* Espacio entre columnas */
- }
- 
- 
- .contacto-item {
+}
+
+.contacto-item {
   display: flex;
   align-items: center; /* Alinea verticalmente el ícono y el texto */
   justify-content: center; /* Centra el contenido horizontalmente */
   margin: 5px 0; /* Espacio entre los elementos */
- }
- 
- 
- .icono2 {
+}
+
+.icono2 {
   margin-right: 8px; /* Espacio entre el ícono y el texto */
   height: 40px;
   width: 50px;
- }
- 
- 
- .color_blanco {
+}
+
+.color_blanco {
   color: white;
- }
- 
- /* Media query para pantallas pequeñas */
+}
+
+/* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
-  .contenedor2 {
-      flex-direction: column; /* Cambiar a columna en móviles */
-      align-items: center; /* Centrar columnas */
+  .footer {
+      flex-direction: column; /* Cambia la dirección a columna en móviles */
+      align-items: center; /* Centra el contenido */
+      padding: 10px; /* Reduce el padding en móviles */
   }
 
-  .columna2 {
+  .contenedor {
+      flex-direction: column; /* Asegura que los hijos también sean columna */
+      width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho */
+  }
+
+  .columna {
       flex: 1 1 100%; /* Cada columna ocupa el 100% en móviles */
       margin: 10px 0; /* Espacio entre columnas */
       padding: 0; /* Elimina el padding en móviles */
   }
+
+  .tamaño_imagen_1 {
+      width: 80px; /* Ajusta el tamaño de la imagen en móviles */
+      height: auto; /* Mantiene la proporción de la imagen */
+  }
+
+  .icono2 {
+      height: 30px; /* Ajusta el tamaño del icono en móviles */
+      width: 30px; /* Ajusta el tamaño del icono en móviles */
+  }
 }
- 
