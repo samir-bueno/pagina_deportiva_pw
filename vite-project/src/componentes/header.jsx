@@ -1,6 +1,5 @@
-// src/components/Header.jsx
 import React, { useState, useEffect } from "react";
-import '../header.css';
+import "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/header.css";
 import searchIcon from "../assets/buscar.png";
 import loginIcon from "../assets/nueva-cuenta.png";
 import Modal from "./Modal";
@@ -13,14 +12,12 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        setVisible(false); // Scroll hacia abajo
-      } else {
-        setVisible(true); // Scroll hacia arriba
-      }
-      setLastScrollY(window.scrollY);
+    if (window.scrollY > lastScrollY) {
+      setVisible(false); // Scroll hacia abajo
+    } else {
+      setVisible(true); // Scroll hacia arriba
     }
+    setLastScrollY(window.scrollY);
   };
 
   useEffect(() => {
@@ -32,7 +29,7 @@ const Header = () => {
 
   return (
     <header className={`header ${isVisible ? "visible" : "hidden"}`}>
-      <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)}>
+      <div className="hamburger" onClick={() => setMenuOpen(!isMenuOpen)} aria-expanded={isMenuOpen}>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
@@ -44,41 +41,19 @@ const Header = () => {
 
       <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
         <ul>
-          <li>
-            <a href="/">Inicio</a>
-          </li>
-          <li>
-            <a href="#productos">Productos</a>
-          </li>
-          <li>
-            <a href="#contacto">Contacto</a>
-          </li>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
+
       <div className="action-buttons">
-        <img
-          src={searchIcon}
-          alt="Buscar"
-          className="icon"
-          onClick={() => setSearchOpen(true)}
-        />
-        <img
-          src={loginIcon}
-          alt="Iniciar sesión"
-          className="icon"
-          onClick={() => setLoginOpen(true)}
-        />
+        <img src={searchIcon} alt="Buscar" className="icon" onClick={() => setSearchOpen(true)} />
+        <img src={loginIcon} alt="Iniciar sesión" className="icon" onClick={() => setLoginOpen(true)} />
       </div>
-      <Modal
-        isOpen={isSearchOpen}
-        onClose={() => setSearchOpen(false)}
-        type="search"
-      />
-      <Modal
-        isOpen={isLoginOpen}
-        onClose={() => setLoginOpen(false)}
-        type="login"
-      />
+
+      <Modal isOpen={isSearchOpen} onClose={() => setSearchOpen(false)} type="search" />
+      <Modal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} type="login" />
     </header>
   );
 };

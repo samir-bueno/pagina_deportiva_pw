@@ -1,5 +1,4 @@
-import '../footer.css';
-
+import "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/footer.css"
 export default function Footer() {
    return (
        <footer className="footer" id="contacto">

@@ -1,6 +1,6 @@
 // src/components/Modal.jsx
 import React from 'react';
-import "/home/etec/Documents/pagina_deportiva_pw/vite-project/src/Modal.css"
+import "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/Modal.css"
 
 const Modal = ({ isOpen, onClose, type }) => {
   if (!isOpen) return null;
