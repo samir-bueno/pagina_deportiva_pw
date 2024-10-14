@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+
+
 export default function Body({ titulo, link, descripcion, parrafo }) {
   return (
     <>
@@ -14,46 +17,62 @@ export default function Body({ titulo, link, descripcion, parrafo }) {
           className="listaDeLado animate__animated animate__bounceInLeft"
           id="productos"
         >
-          <div className="containerImg containerImg:hover">
-            <img className="imagen " src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
+          <Link to="/infProducto">
+            <div className="containerImg containerImg:hover">
+              <img className="imagen " src={link} alt={descripcion} />
+              <p className="texto centrar">{parrafo}</p>
+              <p className="num centrar">$12000</p>
+            </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg ">
             <img className="imagen" src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg">
             <img className="imagen" src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg">
             <img className="imagen " src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg">
             <img className="imagen" src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg">
             <img className="imagen" src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg">
             <img className="imagen" src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
+          <Link to="/infProducto">
           <div className="containerImg">
             <img className="imagen" src={link} alt={descripcion} />
             <p className="texto centrar">{parrafo}</p>
             <p className="num centrar">$12000</p>
           </div>
+          </Link>
         </div>
 
         <div className="listaDeLado elemento">
