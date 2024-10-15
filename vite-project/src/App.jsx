@@ -8,16 +8,15 @@ function App() {
   return (
     <>
       <Header />
-        <div className="main-content" style={{ marginTop: '80px' }}>
-        
-          <Body
-            link={"./imagenes/remera.jpeg"}
-            descripcion={"Remera royal"}
-            parrafo={
-              "Una remera de alta calidad con tela traslucida, anti sudor y comoda"
-            }
-          />
-        </div>
+      <div className="main-content" style={{ marginTop: "80px" }}>
+        <Body
+          link={"./imagenes/remera.jpeg"}
+          descripcion={"Remera royal"}
+          parrafo={
+            "Una remera de alta calidad con tela traslucida, anti sudor y comoda"
+          }
+        />
+      </div>
       <Footer />
     </>
   );
