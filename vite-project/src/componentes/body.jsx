@@ -8,7 +8,7 @@ export default function Body({ titulo, link, descripcion, parrafo }) {
         <div>
           <img
             className="product-image elemento animate__animated animate__fadeInDown "
-            src="../src/assets/messi.jpeg"
+            src="../src/assets/lionel-messi-fanart_2480x1395_xtrafondos.com.jpg"
             alt="Messi"
           />
         </div>
