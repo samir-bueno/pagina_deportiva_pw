@@ -1,25 +1,25 @@
 .footer {
-  padding: 20px;
+  padding: 20px; /* Espacio interno */
   background: #343434; /* Color de fondo */
-  display: flex;
+  display: flex; /* Utiliza flexbox para la disposición */
   justify-content: space-between; /* Espacio entre columnas */
   border-top: 1px solid #ddd; /* Línea superior */
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  flex-wrap: wrap; /* Permite el ajuste de columnas */
 }
 
 .contenedor {
-  display: flex;
-  width: 100%;
+  display: flex; /* Contenedor flex para columnas */
+  width: 100%; /* Ocupa todo el ancho */
 }
 
 h4 {
-  color: #333; /* Color de encabezado */
+  color: #333; /* Color del encabezado */
   margin-bottom: 10px; /* Espacio debajo del encabezado */
 }
 
 .redes {
   display: block; /* Cada enlace en una nueva línea */
-  color: #007bff; /* Color de enlace */
+  color: #007bff; /* Color del enlace */
   text-decoration: none; /* Sin subrayado */
   margin-bottom: 5px; /* Espacio entre enlaces */
 }
@@ -28,60 +28,60 @@ h4 {
   text-decoration: underline; /* Subrayado al pasar el ratón */
 }
 
-.tamaño_imagen_1 {
-  width: 100px; /* Asegúrate de incluir unidades */
-  height: 50px; /* Asegúrate de incluir unidades */
+.tamaño_imagen {
+  width: 100px; /* Ancho de las imágenes */
+  height: 50px; /* Alto de las imágenes */
 }
 
 .columna {
   text-align: center; /* Centra el contenido de la columna */
-  flex: 1; /* Cada columna ocupa el mismo espacio */
-  padding: 0 20px; /* Espacio entre columnas */
+  flex: 1; /* Todas las columnas ocupan el mismo espacio */
+  padding: 0 20px; /* Espacio lateral entre columnas */
 }
 
 .contacto-item {
-  display: flex;
-  align-items: center; /* Alinea verticalmente el ícono y el texto */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  margin: 5px 0; /* Espacio entre los elementos */
+  display: flex; /* Utiliza flex para los elementos de contacto */
+  align-items: center; /* Alinea verticalmente íconos y texto */
+  justify-content: center; /* Centra horizontalmente */
+  margin: 5px 0; /* Espacio entre elementos */
 }
 
-.icono2 {
+.icono {
   margin-right: 8px; /* Espacio entre el ícono y el texto */
-  height: 40px;
-  width: 50px;
+  height: 40px; /* Altura del ícono */
+  width: 50px; /* Ancho del ícono */
 }
 
 .color_blanco {
-  color: white;
+  color: white; /* Color del texto blanco */
 }
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
   .footer {
-      flex-direction: column; /* Cambia la dirección a columna en móviles */
+      flex-direction: column; /* Cambia a disposición vertical en móviles */
       align-items: center; /* Centra el contenido */
-      padding: 10px; /* Reduce el padding en móviles */
+      padding: 10px; /* Reduce el padding */
   }
 
   .contenedor {
-      flex-direction: column; /* Asegura que los hijos también sean columna */
-      width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho */
+      flex-direction: column; /* Asegura que las columnas se apilen */
+      width: 100%; /* Asegura que ocupe todo el ancho */
   }
 
   .columna {
       flex: 1 1 100%; /* Cada columna ocupa el 100% en móviles */
       margin: 10px 0; /* Espacio entre columnas */
-      padding: 0; /* Elimina el padding en móviles */
+      padding: 0; /* Elimina el padding */
   }
 
-  .tamaño_imagen_1 {
+  .tamaño_imagen {
       width: 80px; /* Ajusta el tamaño de la imagen en móviles */
       height: auto; /* Mantiene la proporción de la imagen */
   }
 
-  .icono2 {
-      height: 30px; /* Ajusta el tamaño del icono en móviles */
-      width: 30px; /* Ajusta el tamaño del icono en móviles */
+  .icono {
+      height: 30px; /* Ajusta el tamaño del ícono en móviles */
+      width: 30px; /* Ajusta el tamaño del ícono en móviles */
   }
 }

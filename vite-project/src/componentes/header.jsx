@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/header.css";
+import "../header.css";
 import searchIcon from "../assets/buscar.png";
 import loginIcon from "../assets/nueva-cuenta.png";
 import Modal from "./Modal";
