@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import "./Registro.css"; // Asegúrate de tener este archivo
 import { Link } from 'react-router-dom';
 
-const Registro = ({ onRegister }) => {
+const IniciarSesion = ({ onRegister }) => {
   const [formData, setFormData] = useState({
-    nombre: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -24,51 +22,33 @@ const Registro = ({ onRegister }) => {
 
     // Validaciones simples
     if (
-      !formData.nombre ||
       !formData.email ||
-      !formData.password ||
-      !formData.confirmPassword
+      !formData.password
     ) {
       setError("Por favor, completa todos los campos.");
       return;
     }
 
-    if (formData.password !== formData.confirmPassword) {
-      setError("Las contraseñas no coinciden.");
-      return;
-    }
-
     // Aquí iría la lógica para registrar al usuario (ejemplo con API)
     console.log("Registrando usuario:", formData);
-    setSuccess("Registro exitoso. Puedes iniciar sesión.");
+    setSuccess("Ya iniciaste.");
 
     // Llama a la función onRegister para pasar los datos
     onRegister({ nombre: formData.nombre, email: formData.email });
 
     // Reiniciar el formulario
-    setFormData({ nombre: "", email: "", password: "", confirmPassword: "" });
+    setFormData({ email: "", password: ""});
   };
 
   return (
     <div className="registro-container" style={{marginTop: "80px"}}>
-      <h1>Registro</h1>
+      <h1>Inicio Sesion</h1>
       <p>
-              ¿Ya tienes cuenta? <Link to="/iniciarSesion">Inicio de Sesion.</Link>
+              ¿algo? <Link to="/registro">Registrate.</Link>
       </p>
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="nombre">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            value={formData.nombre}
-            onChange={handleChange}
-            required
-          />
-        </div>
         <div className="form-group">
           <label htmlFor="email">Correo Electrónico</label>
           <input
@@ -91,18 +71,7 @@ const Registro = ({ onRegister }) => {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className="register-button"> 
+        <button type="submit" className="register-button">
           Registrar
         </button>
       </form>
@@ -110,4 +79,4 @@ const Registro = ({ onRegister }) => {
   );
 };
 
-export default Registro;
+export default IniciarSesion;

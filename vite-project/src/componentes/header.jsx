@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react" ;
 import "../header.css";
 import searchIcon from "../assets/buscar.png";
 import loginIcon from "../assets/nueva-cuenta.png";
 import Modal from "./Modal";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -49,11 +50,15 @@ const Header = () => {
 
       <div className="action-buttons">
         <img src={searchIcon} alt="Buscar" className="icon" onClick={() => setSearchOpen(true)} />
-        <img src={loginIcon} alt="Iniciar sesión" className="icon" onClick={() => setLoginOpen(true)} />
+        <Link to="/registro">
+            <img src={loginIcon} alt="Iniciar sesión" className="icon" onClick={() => setLoginOpen(true)} />
+            
+        </Link>
+        
       </div>
 
       <Modal isOpen={isSearchOpen} onClose={() => setSearchOpen(false)} type="search" />
-      <Modal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} type="login" />
+
     </header>
   );
 };
