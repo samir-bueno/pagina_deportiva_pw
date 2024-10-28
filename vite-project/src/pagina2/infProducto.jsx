@@ -1,5 +1,5 @@
 import React from 'react';
-import './InfProducto.css'; // Asegúrate de crear este archivo para los estilos
+import './infProducto.css'; // Asegúrate de crear este archivo para los estilos
 
 const InfProducto = () => {
   const product = {
