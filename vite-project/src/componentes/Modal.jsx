@@ -60,7 +60,7 @@ const Modal = ({ isOpen, onClose, type, onLogin }) => {
           onClick={onClose}
           aria-label="Cerrar modal"
         >
-          ×
+        
         </button>
 
         {type === "login" && (

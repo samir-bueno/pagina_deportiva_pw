@@ -8,7 +8,7 @@ import InfProducto from "./pagina2/infProducto.jsx";
 import Registro from "./pagina_registro/registro.jsx";
 import Header from "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/componentes/header.jsx";
 import Footer from "./componentes/footer.jsx";
-
+import IniciarSesion from "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/pagina_registro/iniciarSesion.jsx";
 createRoot(document.getElementById("root")).render(
   
   <StrictMode>
@@ -20,6 +20,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />} />
         <Route path="/infProducto" element={<InfProducto />} />
         <Route path="/registro" element={<Registro />} />
+        <Route path="/iniciarSesion" element={<IniciarSesion />} />
       </Routes>
     <Footer/>
     </Router>
