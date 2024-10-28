@@ -7,7 +7,7 @@ import React from "react";
 function App() {
   return (
     <>
-      <Header />
+      
       <div className="main-content" style={{ marginTop: "80px" }}>
         <Body
           link={"./imagenes/remera.jpeg"}
@@ -17,7 +17,7 @@ function App() {
           }
         />
       </div>
-      <Footer />
+      
     </>
   );
 }

@@ -1,15 +1,40 @@
 import React from 'react';
+import './InfProducto.css'; // Asegúrate de crear este archivo para los estilos
 
+const InfProducto = () => {
+  const product = {
+    name: 'Camiseta Chelsea Formotion 2009-2010',
+    description: 'Camiseta oficial del Chelsea, utilizada durante la temporada 2009-2010, que destaca por su diseño moderno y tecnología de ventilación Formotion.',
+    details: [
+      'Material: Poliéster 100% reciclado',
+      'Tecnología Formotion para mejor ajuste y ventilación',
+      'Logotipo del club bordado',
+      'Colores: Blanco con rayas negras horizontales',
+      'Disponible en talla L',
+    ],
+    price: 12000,
+    imageUrl: 'https://i.ebayimg.com/thumbs/images/g/jD4AAOSwujtmvR0y/s-l1200.jpg',
+    link: '#', // Aquí puedes agregar el enlace para agregar al carrito
+  };
 
-const InfProducto = ({ link, descripcion, parrafo }) => {
   return (
-    <div>
-
-            <div className="containerImg containerImg:hover">
-              <img className="imagen " src={"https://www.storers.com.ar/wp-content/uploads/2023/08/lkj.jpg"} alt={descripcion} />
-              <p className="texto centrar">{parrafo}</p>
-              <p className="num centrar">$12000</p>
-            </div>
+    <div className="main-content" style={{ marginTop: "80px" }}>
+    <div className="product-detail">
+      <div className="containerImg">
+        <img className="imagen" src={product.imageUrl} alt={product.name} />
+      </div>
+      <div className="product-info">
+        <h1 className="product-title">{product.name}</h1>
+        <p className="product-description">{product.description}</p>
+        <ul className="product-details">
+          {product.details.map((detail, index) => (
+            <li key={index}>{detail}</li>
+          ))}
+        </ul>
+        <h2 className="product-price">${product.price.toLocaleString()}</h2>
+        <a href={product.link} className="add-to-cart">Agregar al carrito</a>
+      </div>
+    </div>
     </div>
   );
 };
