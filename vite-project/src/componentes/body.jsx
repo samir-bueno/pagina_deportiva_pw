@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Body({ titulo, link, description, parrafo }) {
+export default function Body({ titulo, link, description, parrafo, precio }) {
   return (
     <>
       <div className="container">
@@ -9,8 +9,8 @@ export default function Body({ titulo, link, description, parrafo }) {
           <Link to="/infProducto">
             <div className="containerImg">
               <img className="imagen" src={link} alt={description} />
-              <p className="texto centrar">{description}</p>
-              <p className="num centrar">$12000</p>
+              <p className="texto centrar">{parrafo}</p>
+              <p className="num centrar">${precio}</p>
             </div>
           </Link>
           {/* Repetir el Link según sea necesario con diferentes productos */}

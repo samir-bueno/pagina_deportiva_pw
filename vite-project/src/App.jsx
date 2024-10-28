@@ -28,9 +28,10 @@ function App() {
               <Body
                 key={index} // Asegúrate de usar una key única
                 titulo={item.titulo} // Cambia 'titulo' por el campo adecuado en tu data
-                link={item.link || "./imagenes/remera.jpeg"} // Ajusta según tu API
+                link={item.image || "./imagenes/remera.jpeg"} // Ajusta según tu API
                 description={item.Description} // Cambia 'Descripcion' por el campo adecuado en tu data
-                parrafo={item.Description} // O agrega un campo desde tu data
+                parrafo={item.Name} // O agrega un campo desde tu data
+                precio={item.Price}
               />
             ))}
           </div>
