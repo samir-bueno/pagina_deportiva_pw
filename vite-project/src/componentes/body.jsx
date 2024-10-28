@@ -1,109 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-
-export default function Body({ titulo, link, descripcion, parrafo }) {
+export default function Body({ titulo, link, description, parrafo }) {
   return (
     <>
       <div className="container">
-        <div>
-          <img
-            className="product-image elemento animate__animated animate__fadeInDown "
-            src="../src/assets/lionel-messi-fanart_2480x1395_xtrafondos.com.jpg"
-            alt="Messi"
-          />
-        </div>
         <h2>{titulo}</h2>
-        <div
-          className="listaDeLado animate__animated animate__bounceInLeft"
-          id="productos"
-        >
+        <div className="animate__animated animate__bounceInLeft" id="productos">
           <Link to="/infProducto">
-            <div className="containerImg containerImg:hover">
-              <img className="imagen " src={link} alt={descripcion} />
-              <p className="texto centrar">{parrafo}</p>
+            <div className="containerImg">
+              <img className="imagen" src={link} alt={description} />
+              <p className="texto centrar">{description}</p>
               <p className="num centrar">$12000</p>
             </div>
           </Link>
-          <Link to="/infProducto">
-          <div className="containerImg ">
-            <img className="imagen" src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-          <Link to="/infProducto">
-          <div className="containerImg">
-            <img className="imagen" src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-          <Link to="/infProducto">
-          <div className="containerImg">
-            <img className="imagen " src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-          <Link to="/infProducto">
-          <div className="containerImg">
-            <img className="imagen" src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-          <Link to="/infProducto">
-          <div className="containerImg">
-            <img className="imagen" src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-          <Link to="/infProducto">
-          <div className="containerImg">
-            <img className="imagen" src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-          <Link to="/infProducto">
-          <div className="containerImg">
-            <img className="imagen" src={link} alt={descripcion} />
-            <p className="texto centrar">{parrafo}</p>
-            <p className="num centrar">$12000</p>
-          </div>
-          </Link>
-        </div>
-
-        <div className="listaDeLado elemento">
-          <div>
-            <img
-              className="imagen_marca"
-              src="https://media2.solodeportes.com.ar/media/catalog/brands/Adidas-Performance-inactive.png"
-              alt="Adidas"
-            />
-          </div>
-          <div>
-            <img
-              className="imagen_marca"
-              src="https://media2.solodeportes.com.ar/media/catalog/brands/fila.png"
-              alt="Fila"
-            />
-          </div>
-          <div>
-            <img
-              className="imagen_marca"
-              src="https://media2.solodeportes.com.ar/media/catalog/brands/logo200x200nike.png"
-              alt="Nike"
-            />
-          </div>
-          <div>
-            <img
-              className="imagen_marca"
-              src="https://media2.solodeportes.com.ar/media/catalog/brands/puma.png"
-              alt="Puma"
-            />
-          </div>
+          {/* Repetir el Link según sea necesario con diferentes productos */}
         </div>
       </div>
     </>
