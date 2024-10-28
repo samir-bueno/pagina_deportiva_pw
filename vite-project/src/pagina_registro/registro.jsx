@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Registro.css"; // Asegúrate de tener este archivo
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Registro = ({ onRegister }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const Registro = ({ onRegister }) => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate(); // Hook para redirigir
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +22,7 @@ const Registro = ({ onRegister }) => {
     e.preventDefault();
     setError("");
     setSuccess("");
-
+  
     // Validaciones simples
     if (
       !formData.nombre ||
@@ -32,28 +33,31 @@ const Registro = ({ onRegister }) => {
       setError("Por favor, completa todos los campos.");
       return;
     }
-
+  
     if (formData.password !== formData.confirmPassword) {
       setError("Las contraseñas no coinciden.");
       return;
     }
-
+  
     // Aquí iría la lógica para registrar al usuario (ejemplo con API)
     console.log("Registrando usuario:", formData);
     setSuccess("Registro exitoso. Puedes iniciar sesión.");
-
-    // Llama a la función onRegister para pasar los datos
-    onRegister({ nombre: formData.nombre, email: formData.email });
-
+  
+    // Guarda la información del usuario en localStorage
+    localStorage.setItem("usuario", JSON.stringify({ email: formData.email, password: formData.password }));
+  
     // Reiniciar el formulario
     setFormData({ nombre: "", email: "", password: "", confirmPassword: "" });
+  
+    // Redirige a la página de inicio de sesión
+    navigate("/iniciarSesion");
   };
-
+  
   return (
     <div className="registro-container" style={{marginTop: "80px"}}>
       <h1>Registro</h1>
       <p>
-              ¿Ya tienes cuenta? <Link to="/iniciarSesion">Inicio de Sesion.</Link>
+        ¿Ya tienes cuenta? <Link to="/iniciarSesion">Inicio de Sesion.</Link>
       </p>
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}

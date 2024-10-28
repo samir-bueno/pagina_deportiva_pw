@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")).render(
       
         <Route path="/" element={<App />} />
         <Route path="/infProducto" element={<InfProducto />} />
-        <Route path="/registro" element={<Registro />} />
+        <Route path="/registro" element={<Registro onRegister={() => {}} />} />
         <Route path="/iniciarSesion" element={<IniciarSesion />} />
       </Routes>
     <Footer/>
