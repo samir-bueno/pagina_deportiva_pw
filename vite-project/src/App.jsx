@@ -4,6 +4,7 @@ import Footer from "./componentes/footer";
 import Header from "./componentes/header";
 import React, { useEffect, useState } from "react";
 import Search from "./componentes/Search";
+import { Link } from "react-router-dom"; // Asegúrate de que esta línea esté presente
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -11,12 +12,10 @@ function App() {
 
   // Filtrar productos solo si hay un término de búsqueda
   const filteredProducts = query
-    ? products.filter(item => //condicional ternario signo de pregunta marca la primner condicion ? dos puntitos el else: 
+    ? products.filter(item => 
         item.Name?.toLowerCase().includes(query.toLowerCase())
       )
-    : products; // Muestra todos los productos si no hay búsqueda
-    //? entonces : sino 
-    // esta funcion realiza lo siguiente. Si existe una query, es decir, texto en el input, va a aplicar el filtro, si no (:) nos va a devolver todos los productos
+    : products;
 
   // Efecto para obtener productos de la API
   useEffect(() => {
@@ -32,7 +31,7 @@ function App() {
 
   return (
     <>
-      {products.length > 0 ? ( // Verifica si hay productos
+      {products.length > 0 ? (
         <div className="main-content" style={{ marginTop: "80px" }}>
           <div>
             <img
@@ -43,16 +42,17 @@ function App() {
             <Search onSearch={setQuery} />
           </div>
           <div className="listaDeLado">
-            {filteredProducts.length > 0 ? ( // Mostrar productos filtrados
-              filteredProducts.map((item, index) => (
-                <Body
-                  key={index} // Asegúrate de usar una key única
-                  titulo={item.titulo} // Cambia 'titulo' por el campo adecuado en tu data
-                  link={item.image || "./imagenes/remera.jpeg"} // Ajusta según tu API
-                  description={item.Description} // Cambia 'Descripcion' por el campo adecuado en tu data
-                  parrafo={item.Nombre} // O agrega un campo desde tu data
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((item) => (
+                  <Body
+                  key={item.ID} // Asegúrate de usar el ID como clave única
+                  id={item.ID} // Pasa el ID al componente
+                  titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
+                  link={item.image || "./imagenes/remera.jpeg"}
+                  description={item.Description}
+                  parrafo={item.Name}
                   precio={item.Price}
-                />
+                  />
               ))
             ) : (
               <>No se encontraron productos.</>

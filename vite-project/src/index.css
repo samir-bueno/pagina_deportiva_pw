@@ -92,7 +92,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: auto;
-  gap: 10px;
+  gap: 5px;
   justify-items: center; /* Centra los elementos en las celdas */
 }
 
