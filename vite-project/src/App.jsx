@@ -48,7 +48,7 @@ function App() {
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
                   titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
-                  link={item.image || "./imagenes/remera.jpeg"}
+                  link={item.image}
                   description={item.Description}
                   parrafo={item.Name}
                   precio={item.Price}
