@@ -75,7 +75,7 @@ header {
 }
 
 .nav a:hover {
-  background-color: rgba(97, 218, 251, 0.2);
+  background-color: rgb(255, 255, 255);
 }
 
 .action-buttons {
@@ -144,4 +144,3 @@ header {
     height: 20px;
   }
 }
-
