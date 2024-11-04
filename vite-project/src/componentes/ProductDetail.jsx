@@ -9,7 +9,7 @@ function ProductDetail() {
 
   useEffect(() => {
     console.log("Fetching product with ID:", id);
-    fetch(`http://127.0.0.1:5002/products/${id}`)
+    fetch(`http://127.0.0.1:5003/products/${id}`) //El puerto va variando mientras hago los push
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

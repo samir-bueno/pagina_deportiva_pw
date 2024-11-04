@@ -96,8 +96,6 @@ button:focus-visible {
   justify-items: center; /* Centra los elementos en las celdas */
 }
 
-
-
 .num {
   color: #000000;
 }
@@ -105,7 +103,6 @@ button:focus-visible {
   width: 100%; /* La imagen ocupa todo el ancho del card */
   height: 300%; /* Mantener la relación de aspecto */
   object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
-
 }
 
 .elemento {
@@ -150,4 +147,28 @@ button:focus-visible {
   width: 50%; /* o el tamaño deseado */
   padding: 20px;
   background-color: lightblue; /* Solo para visualizar */
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espacio entre las imágenes */
+}
+
+.containerImgen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px; /* Tamaño uniforme de las imágenes */
+  height: 110px; /* Tamaño uniforme de las imágenes */
+  overflow: hidden;
+  border-radius: 8px; /* Bordes redondeados opcionales */
+  padding: 90px; /* Espaciado interno */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transición para efectos */
+}
+
+.textMar {
+  text-align: center;
+  font-size: 30px;
 }

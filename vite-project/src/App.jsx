@@ -6,20 +6,37 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [brands, setBrands] = useState([]); // Nuevo estado para marcas
   const [query, setQuery] = useState("");
 
   // Filtrar productos solo si hay un término de búsqueda
   const filteredProducts = query
-    ? products.filter(item => 
+    ? products.filter((item) =>
         item.Name?.toLowerCase().includes(query.toLowerCase())
       )
     : products;
 
   // Efecto para obtener productos de la API
   useEffect(() => {
+    // Fetch para productos
     fetch("http://127.0.0.1:5000/products")
       .then((data) => data.json())
       .then((data) => setProducts(data));
+
+    // Fetch para marcas
+    fetch("http://127.0.0.1:5005/brands") // Asegúrate de que esta URL sea correcta
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al cargar las marcas");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setBrands(data); // Almacena las marcas en el estado
+      })
+      .catch((error) => {
+        console.error("Error fetching brands:", error);
+      });
   }, []);
 
   return (
@@ -37,19 +54,11 @@ function App() {
           <div className="listaDeLado">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((item) => (
-<<<<<<< HEAD
-                  <Body
+                <Body
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
                   titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
                   link={item.image}
-=======
-                <Body
-                  key={item.ID}
-                  id={item.ID}
-                  titulo={item.titulo}
-                  link={item.image || "./imagenes/remera.jpeg"}
->>>>>>> 77c9edf1019c384800c9547c9331e337f96e3c72
                   description={item.Description}
                   parrafo={item.Name}
                   precio={item.Price}
@@ -58,6 +67,20 @@ function App() {
             ) : (
               <>No se encontraron productos.</>
             )}
+          </div>
+          <div className="brands-container">
+            <h2 className="textMar">Marcas</h2>
+            <div className="brand-list">
+              {brands.length > 0 ? (
+                brands.map((brand) => (
+                  <div className="containerImgen">
+                    <img className="imagen " src={brand.image} />
+                  </div>
+                ))
+              ) : (
+                <>No se encontraron marcas.</>
+              )}
+            </div>
           </div>
         </div>
       ) : (
