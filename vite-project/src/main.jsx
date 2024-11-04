@@ -8,6 +8,11 @@ import ProductDetail from "./componentes/ProductDetail.jsx";
 import Registro from "./pagina_registro/registro.jsx";
 import Header from "/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/componentes/header.jsx";
 import Footer from "./componentes/footer.jsx";
+<<<<<<< HEAD
+=======
+import IniciarSesion from "./pagina_registro/iniciarSesion.jsx"
+import AgregarProducto from "./pages/AgregarProducto.jsx";
+>>>>>>> 10163b06b6f367a3a2c853dea21bebf7517318eb
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
@@ -16,6 +21,11 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/registro" element={<Registro onRegister={() => {}} />} />
+<<<<<<< HEAD
+=======
+        <Route path="/iniciarSesion" element={<IniciarSesion />} />
+        <Route path="/agregar-producto" element={<AgregarProducto />} />
+>>>>>>> 10163b06b6f367a3a2c853dea21bebf7517318eb
       </Routes>
       <Footer />
     </Router>
