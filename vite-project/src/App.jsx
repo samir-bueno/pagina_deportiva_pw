@@ -37,19 +37,11 @@ function App() {
           <div className="listaDeLado">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((item) => (
-<<<<<<< HEAD
                   <Body
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
                   titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
                   link={item.image}
-=======
-                <Body
-                  key={item.ID}
-                  id={item.ID}
-                  titulo={item.titulo}
-                  link={item.image || "./imagenes/remera.jpeg"}
->>>>>>> 77c9edf1019c384800c9547c9331e337f96e3c72
                   description={item.Description}
                   parrafo={item.Name}
                   precio={item.Price}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../header.css";
 import searchIcon from "../assets/buscar.png";
+import addIcon from "../assets/add.png"
 import loginIcon from "../assets/nueva-cuenta.png";
 import Modal from "./Modal";
 import { Link } from 'react-router-dom';
@@ -56,22 +57,23 @@ const Header = ({ onSearch }) => {
       </nav>
 
       <div className="action-buttons">
-        <img 
-          src={searchIcon} 
-          alt="Buscar" 
-          className="icon" 
-          onClick={() => setSearchOpen(true)} 
-        />
-        <Link to="/registro">
-          <img 
-            src={loginIcon} 
-            alt="Iniciar sesión" 
-            className="icon" 
-            onClick={() => setLoginOpen(true)} 
-          />
-        </Link>
-      </div>
+       <img
+         src={searchIcon}
+         alt="Buscar"
+         className="icon"
+         onClick={() => setSearchOpen(true)}
+       />
+       <Link to="/registro">
+         <img src={loginIcon} alt="Iniciar sesión" className="icon" onClick={() => setLoginOpen(true)} />
+       </Link>
+       {/* Botón para agregar productos */}
+       <Link to="/agregar-producto">
+           <img src={addIcon} alt="Agregar" className="icon" />
+       </Link>
+     </div>
 
+
+      
       {/* Campo de búsqueda en el header */}
       {isSearchOpen && (
         <div className="search-modal">
