@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '/home/etec/Documentos/pagina_deportiva_pw/vite-project/src/pages/AgregarProducto.css'; // Asegúrate de tener el CSS correspondiente
+import './AgregarProducto.css'; // Asegúrate de tener el CSS correspondiente
 
 
 const AgregarProducto = () => {
