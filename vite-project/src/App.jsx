@@ -54,11 +54,7 @@ function App() {
           <div className="listaDeLado">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((item) => (
-<<<<<<< HEAD
-                <Body
-=======
                   <Body
->>>>>>> 10163b06b6f367a3a2c853dea21bebf7517318eb
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
                   titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
