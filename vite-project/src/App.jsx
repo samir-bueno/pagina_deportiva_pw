@@ -6,8 +6,9 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [brands, setBrands] = useState([]); // Nuevo estado para marcas
+  const [brands, setBrands] = useState([]);
   const [query, setQuery] = useState("");
+  const [userName, setUserName] = useState("");
 
   // Filtrar productos solo si hay un término de búsqueda
   const filteredProducts = query
@@ -18,6 +19,11 @@ function App() {
 
   // Efecto para obtener productos de la API
   useEffect(() => {
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (usuario && usuario.name) {
+      setUserName(usuario.name);
+    }
+
     // Fetch para productos
     fetch("http://127.0.0.1:5000/products")
       .then((data) => data.json())
@@ -39,9 +45,20 @@ function App() {
       });
   }, []);
 
+  // Función para manejar la búsqueda
+  const handleSearch = (value) => {
+    setQuery(value);
+  };
+
+  // Función para manejar el cierre de sesión
+  const handleLogout = () => {
+    setUserName(""); // Elimina el nombre del usuario del estado
+    localStorage.removeItem("usuario"); // Elimina el usuario de localStorage
+  };
+
   return (
     <>
-      <Header onSearch={setQuery} /> {/* Pasa setQuery al Header */}
+      <Header userName={userName} onSearch={handleSearch} onLogout={handleLogout} /> {/* Pasa onLogout al Header */}
       {products.length > 0 ? (
         <div className="main-content" style={{ marginTop: "80px" }}>
           <div>
@@ -54,7 +71,7 @@ function App() {
           <div className="listaDeLado">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((item) => (
-                  <Body
+                <Body
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
                   titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
@@ -73,8 +90,8 @@ function App() {
             <div className="brand-list">
               {brands.length > 0 ? (
                 brands.map((brand) => (
-                  <div className="containerImgen">
-                    <img className="imagen " src={brand.image} />
+                  <div className="containerImgen" key={brand.ID}>
+                    <img className="imagen " src={brand.image} alt={brand.name} />
                   </div>
                 ))
               ) : (

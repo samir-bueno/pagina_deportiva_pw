@@ -39,7 +39,7 @@ const IniciarSesion = () => {
       if (response.ok) {
         setSuccess("Inicio de sesión exitoso.");
         localStorage.setItem("usuario", JSON.stringify(result.usuario));
-        navigate("/");
+        navigate("/");      
       } else {
         setError(result.error || "Error en el inicio de sesión.");
       }
