@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Registro.css"; // Asegúrate de tener este archivo
-import { Link, useNavigate } from 'react-router-dom';
+import "./Registro.css";
+import { Link, useNavigate } from "react-router-dom";
 
-const Registro = ({ onRegister }) => {
+const Registro = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -11,18 +11,18 @@ const Registro = ({ onRegister }) => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate(); // Hook para redirigir
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
-  
+
     // Validaciones simples
     if (
       !formData.nombre ||
@@ -33,28 +33,45 @@ const Registro = ({ onRegister }) => {
       setError("Por favor, completa todos los campos.");
       return;
     }
-  
+
     if (formData.password !== formData.confirmPassword) {
       setError("Las contraseñas no coinciden.");
       return;
     }
-  
-    // Aquí iría la lógica para registrar al usuario (ejemplo con API)
-    console.log("Registrando usuario:", formData);
-    setSuccess("Registro exitoso. Puedes iniciar sesión.");
-  
-    // Guarda la información del usuario en localStorage
-    localStorage.setItem("usuario", JSON.stringify({ email: formData.email, password: formData.password }));
-  
-    // Reiniciar el formulario
-    setFormData({ nombre: "", email: "", password: "", confirmPassword: "" });
-  
-    // Redirige a la página de inicio de sesión
-    navigate("/iniciarSesion");
+
+    // Datos a enviar a la API
+    const userData = {
+      name: formData.nombre,
+      email: formData.email,
+      password: formData.password,
+    };
+
+    try {
+      // Enviar solicitud POST a la API
+      const response = await fetch("http://localhost:5002/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess(data.message);
+        // Redirige a la página de inicio de sesión
+        navigate("/iniciarSesion");
+      } else {
+        setError(data.error);
+      }
+    } catch (err) {
+      setError("Hubo un problema al registrar al usuario.");
+    }
   };
-  
+
   return (
-    <div className="registro-container" style={{marginTop: "80px"}}>
+    <div className="registro-container" style={{ marginTop: "80px" }}>
       <h1>Registro</h1>
       <p>
         ¿Ya tienes cuenta? <Link to="/iniciarSesion">Inicio de Sesion.</Link>
@@ -106,7 +123,7 @@ const Registro = ({ onRegister }) => {
             required
           />
         </div>
-        <button type="submit" className="register-button"> 
+        <button type="submit" className="register-button">
           Registrar
         </button>
       </form>

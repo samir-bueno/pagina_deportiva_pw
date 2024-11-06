@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Registro.css"; // Asegúrate de tener este archivo
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import "./Registro.css";
 
 const IniciarSesion = () => {
   const [formData, setFormData] = useState({
@@ -9,41 +9,47 @@ const IniciarSesion = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
-  useEffect(() => {
-    // Cargar los datos del usuario desde localStorage
-    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-    if (usuarioGuardado) {
-      setFormData({ email: usuarioGuardado.email, password: usuarioGuardado.password });
-    }
-  }, []);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
 
-    // Validaciones simples
     if (!formData.email || !formData.password) {
       setError("Por favor, completa todos los campos.");
       return;
     }
 
-    // Aquí iría la lógica de autenticación (ejemplo con API)
-    console.log("Iniciando sesión con:", formData);
-    setSuccess("Ya iniciaste sesión.");
+    try {
+      const response = await fetch("http://127.0.0.1:5002/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
 
-    // Reiniciar el formulario
-    setFormData({ email: "", password: "" });
+      if (response.ok) {
+        setSuccess("Inicio de sesión exitoso.");
+        localStorage.setItem("usuario", JSON.stringify(result.usuario));
+        navigate("/");
+      } else {
+        setError(result.error || "Error en el inicio de sesión.");
+      }
+    } catch (error) {
+      setError("Error al conectar con el servidor.");
+    }
   };
 
   return (
-    <div className="registro-container" style={{marginTop: "80px"}}>
+    <div className="registro-container" style={{ marginTop: "80px" }}>
       <h1>Inicio Sesion</h1>
       <p>
         ¿No tienes cuenta? <Link to="/registro">Registrate.</Link>
