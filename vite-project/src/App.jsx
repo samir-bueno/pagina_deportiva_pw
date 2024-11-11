@@ -30,7 +30,7 @@ function App() {
       .then((data) => setProducts(data));
 
     // Fetch para marcas
-    fetch("http://127.0.0.1:5005/brands") // Asegúrate de que esta URL sea correcta
+    fetch("http://127.0.0.1:5003/brands") // Asegúrate de que esta URL sea correcta
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error al cargar las marcas");
@@ -105,7 +105,12 @@ function App() {
 
   return (
     <>
-      <Header userName={userName} onSearch={handleSearch} onLogout={handleLogout} /> {/* Pasa onLogout al Header */}
+      <Header
+        userName={userName}
+        onSearch={handleSearch}
+        onLogout={handleLogout}
+      />{" "}
+      {/* Pasa onLogout al Header */}
       {products.length > 0 ? (
         <div className="main-content" style={{ marginTop: "80px" }}>
           <div>
@@ -139,7 +144,11 @@ function App() {
               {brands.length > 0 ? (
                 brands.map((brand) => (
                   <div className="containerImgen" key={brand.ID}>
-                    <img className="imagen " src={brand.image} alt={brand.name} />
+                    <img
+                      className="imagen "
+                      src={brand.image}
+                      alt={brand.name}
+                    />
                   </div>
                 ))
               ) : (

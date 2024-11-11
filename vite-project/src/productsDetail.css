@@ -58,3 +58,21 @@ p {
   line-height: 1.5; /* Espaciado entre líneas */
   margin-bottom: 15px; /* Espaciado inferior */
 }
+
+.product-info button {
+  display: block; /* Asegura que el botón se apile debajo del texto */
+  width: auto; /* Tamaño automático del botón */
+  margin-top: 20px; /* Añade espacio encima del botón para separarlo del texto */
+  padding: 10px 20px; /* Ajusta el padding del botón */
+  font-size: 1rem; /* Tamaño de fuente moderado */
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Apunta al cursor para indicar que es un botón */
+  transition: background-color 0.3s; /* Efecto suave de transición al pasar el mouse */
+}
+
+.product-info button:hover {
+  background-color: #0056b3; /* Cambiar color de fondo cuando se pasa el mouse */
+}
