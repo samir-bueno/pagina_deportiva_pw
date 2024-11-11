@@ -1,0 +1,110 @@
+/* Contenedor principal del login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Estilo para el contenedor del ícono de usuario */
+  .user-icon-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Estilo del ícono de usuario (circular) */
+  .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para el menú de cerrar sesión */
+  .logout-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Botón de cerrar sesión */
+  .logout-menu button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .logout-menu button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Estilo para el formulario de inicio de sesión */
+  .registro-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button.register-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para mensajes de error y éxito */
+  .error-message {
+    color: #dc3545;
+    font-size: 14px;
+  }
+  
+  .success-message {
+    color: #28a745;
+    font-size: 14px;
+  }
+  
