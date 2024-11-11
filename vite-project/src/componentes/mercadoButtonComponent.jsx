@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 
-initMercadoPago("TEST-94536087-912f-4d49-bd19-12a91080a836");
+initMercadoPago("TEST-b97960e2-1f9d-45cc-a6d0-93ed3c5521c0");
 
 const MercadoButtonComponent = () => {
   const [preferenceId, setPreferenceId] = useState(null);
@@ -35,7 +35,7 @@ Here you can hide loadings from your site, for example.
             headers: {
               "Content-Type": "application/json",
               Authorization:
-                "Bearer TEST-7328565582564593-092915-3ad32e0d1f64ac84c915360fd2e01715-156057208", // Use your Mercado Pago access token here
+                "Bearer TEST-7900588881644177-111115-4d8192ad4404d13aa40c0e7c3dd13673-477043999", // Use your Mercado Pago access token here
             },
             body: JSON.stringify({
               items: [
