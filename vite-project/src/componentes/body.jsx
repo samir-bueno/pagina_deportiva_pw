@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Body({ id, titulo, link, description, parrafo, precio, onDelete }) {
+function Body({ id, link, description, parrafo, precio, onDelete }) {
   const handleDelete = () => {
     if (window.confirm("¿Estás seguro de que quieres eliminar este producto?")) {
       onDelete(id); // Llamamos a la función onDelete pasada como prop
@@ -9,8 +9,7 @@ function Body({ id, titulo, link, description, parrafo, precio, onDelete }) {
 
   return (
     <div className="listaDeLado">
-      <h2>{titulo}</h2>
-      <div className="animate__animated animate__bounceInLeft" id="products">
+      <div className="animate__animated animate__bounceInLeft" id="productos">
         <Link to={`/product/${id}`}>
           <div className="containerImg">
             <img className="imagen" src={link} alt={description} />

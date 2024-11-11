@@ -4,6 +4,7 @@ import searchIcon from "../assets/buscar.png";
 import addIcon from "../assets/add.png";
 import loginIcon from "../assets/nueva-cuenta.png";
 import { Link } from "react-router-dom";
+import "./body"
 
 const Header = ({ userName, onSearch, onLogout }) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -55,8 +56,8 @@ const Header = ({ userName, onSearch, onLogout }) => {
       <nav className={`nav ${isMenuOpen ? "open" : ""}`}>
         <ul>
           <li><Link to="/">Inicio</Link></li>
-          <li><Link to="#productos">Productos</Link></li>
-          <li><Link to="#contacto">Contacto</Link></li>
+          <li><a href="#productos">Productos</a></li> 
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
 
