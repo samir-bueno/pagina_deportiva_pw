@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AgregarProducto.css'; // Asegúrate de tener el CSS correspondiente
 
 const AgregarProducto = () => {
@@ -14,25 +14,62 @@ const AgregarProducto = () => {
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState('');
 
-  const categorias = ['Remera', 'Campera', 'Short'];
-  const talles = ['XS', 'S', 'M', 'L', 'XL'];
-  const colores = ['Rojo', 'Verde', 'Azul', 'Negro', 'Blanco'];
-  const marcas = ['Marca A', 'Marca B', 'Marca C'];
-  const anos = ['2020', '2021', '2022', '2023'];
+  const [categories, setCategories] = useState([]);
+  const [sizes, setSizes] = useState([]);
+  const [colors, setColors] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [years, setYears] = useState([]);
+
+  // Función para cargar las opciones desde las APIs
+  const fetchData = async () => {
+    try {
+      // Cargar categorías
+      const categoriesResponse = await fetch('http://127.0.0.1:5003/categories');
+      const categoriesData = await categoriesResponse.json();
+      setCategories(categoriesData);
+
+      // Cargar talles
+      const sizesResponse = await fetch('http://127.0.0.1:5002/sizes');
+      const sizesData = await sizesResponse.json();
+      setSizes(sizesData);
+
+      // Cargar colores
+      const colorsResponse = await fetch('http://127.0.0.1:5004/colors');
+      const colorsData = await colorsResponse.json();
+      setColors(colorsData);
+
+      // Cargar marcas
+      const brandsResponse = await fetch('http://127.0.0.1:5005/brands');
+      const brandsData = await brandsResponse.json();
+      setBrands(brandsData);
+
+      // Cargar años
+      const yearsResponse = await fetch('http://127.0.0.1:5006/years');  // Verifica la URL correcta
+      const yearsData = await yearsResponse.json();
+      setYears(yearsData);
+
+    } catch (error) {
+      console.error('Error al cargar las opciones:', error);
+      setError('Hubo un problema al cargar los datos. Intenta nuevamente.');
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []); // Se ejecuta una sola vez cuando el componente se monta
 
   const manejarEnvio = async (e) => {
     e.preventDefault();
 
-    // Crea un objeto de datos
     const data = {
       Name,
       Price,
       Description,
-      Categories_ID: categoria || null,  // Permite null si no se selecciona categoría
-      Size_ID: talle || null,            // Permite null si no se selecciona talle
-      color_ID: color || null,           // Permite null si no se selecciona color
-      Brand_ID: marca || null,           // Permite null si no se selecciona marca
-      Year_ID: ano || null,              // Permite null si no se selecciona año
+      Categories_ID: categoria || null,  // ID de la categoría seleccionada
+      Size_ID: talle || null,            // ID del talle seleccionado
+      color_ID: color || null,           // ID del color seleccionado
+      Brand_ID: marca || null,           // ID de la marca seleccionada
+      Year_ID: ano || null,              // ID del año seleccionado
       image: Image ? Image.name : null   // Opcional: Si se selecciona una imagen, enviarla
     };
 
@@ -40,9 +77,9 @@ const AgregarProducto = () => {
       const response = await fetch('http://127.0.0.1:5000/products', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',  // Enviar como JSON
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data), // Convertir los datos a JSON
+        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -51,7 +88,7 @@ const AgregarProducto = () => {
 
       const responseData = await response.json();
       setMensaje('Producto agregado exitosamente!');
-    
+
       // Limpiar el formulario
       setNombre('');
       setPrecio('');
@@ -112,8 +149,8 @@ const AgregarProducto = () => {
             onChange={(e) => setCategoria(e.target.value)}
           >
             <option value="">Selecciona una categoría</option>
-            {categorias.map((cat, index) => (
-              <option key={index} value={cat}>{cat}</option>
+            {categories.map((cat) => (
+              <option key={cat.ID} value={cat.ID}>{cat.Name}</option>
             ))}
           </select>
         </div>
@@ -125,8 +162,8 @@ const AgregarProducto = () => {
             onChange={(e) => setTalle(e.target.value)}
           >
             <option value="">Selecciona un talle</option>
-            {talles.map((t, index) => (
-              <option key={index} value={t}>{t}</option>
+            {sizes.map((size) => (
+              <option key={size.ID} value={size.ID}>{size.Sizes}</option>
             ))}
           </select>
         </div>
@@ -138,8 +175,8 @@ const AgregarProducto = () => {
             onChange={(e) => setColor(e.target.value)}
           >
             <option value="">Selecciona un color</option>
-            {colores.map((col, index) => (
-              <option key={index} value={col}>{col}</option>
+            {colors.map((col) => (
+              <option key={col.ID} value={col.ID}>{col.types_Colors}</option>
             ))}
           </select>
         </div>
@@ -151,8 +188,8 @@ const AgregarProducto = () => {
             onChange={(e) => setMarca(e.target.value)}
           >
             <option value="">Selecciona una marca</option>
-            {marcas.map((mar, index) => (
-              <option key={index} value={mar}>{mar}</option>
+            {brands.map((brand) => (
+              <option key={brand.ID} value={brand.ID}>{brand.Name}</option>
             ))}
           </select>
         </div>
@@ -164,8 +201,8 @@ const AgregarProducto = () => {
             onChange={(e) => setAno(e.target.value)}
           >
             <option value="">Selecciona un año</option>
-            {anos.map((a, index) => (
-              <option key={index} value={a}>{a}</option>
+            {years.map((year) => (
+              <option key={year.ID} value={year.ID}>{year.Year}</option>
             ))}
           </select>
         </div>

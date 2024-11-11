@@ -48,3 +48,32 @@ main {
 .read-the-docs {
   color: #888;
 }
+
+.containerImg {
+  position: relative;
+  display: inline-block;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-btn .line {
+  width: 20px;
+  height: 2px;
+  background-color: white;
+}
+
+.delete-btn:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+}

@@ -56,6 +56,53 @@ function App() {
     localStorage.removeItem("usuario"); // Elimina el usuario de localStorage
   };
 
+  
+
+  // Función para eliminar un producto
+  const handleDeleteProduct = (id) => {
+    // Asegúrate de que `id` sea un número
+    const productId = parseInt(id, 10);
+  
+    if (isNaN(productId)) {
+      console.error("El ID del producto no es válido:", id);
+      alert("El ID del producto no es válido.");
+      return;
+    }
+  
+    fetch(`http://127.0.0.1:5000/products/${productId}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Si la eliminación es exitosa, actualiza el estado para reflejar el cambio
+          setProducts(products.filter((product) => product.ID !== productId));
+          alert("Producto eliminado exitosamente");
+        } else {
+          alert("Error al eliminar el producto");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al eliminar el producto:", error);
+        alert("Error al eliminar el producto");
+      });
+  };
+  
+  const handleDelete = (id) => {
+    if (window.confirm("¿Estás seguro de que quieres eliminar este producto?")) {
+      handleDeleteProduct(id);
+    } else {
+      // El usuario canceló la eliminación, simplemente no hace nada y permanece en la misma página.
+      alert("La eliminación ha sido cancelada.");
+    }
+  };
+  
+  // En el componente Body
+  <div className="delete-btn" onClick={() => handleDelete(id)}>
+    <div className="line"></div>
+  </div>
+  
+  
+
   return (
     <>
       <Header
@@ -79,11 +126,12 @@ function App() {
                 <Body
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
-                  titulo={item.titulo} // Asegúrate de que esto corresponda a tus datos
+                  titulo={item.Name} // Asegúrate de que esto corresponda a tus datos
                   link={item.image}
                   description={item.Description}
                   parrafo={item.Name}
                   precio={item.Price}
+                  onDelete={handleDeleteProduct} // Pasa la función de eliminación al componente Body
                 />
               ))
             ) : (
