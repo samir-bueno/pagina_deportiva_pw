@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Body({ id, titulo, link, description, parrafo, precio, onDelete }) {
+function Body({ id, link, description, parrafo, precio, onDelete }) {
   const handleDelete = () => {
     if (
       window.confirm("¿Estás seguro de que quieres eliminar este producto?")
@@ -11,7 +11,11 @@ function Body({ id, titulo, link, description, parrafo, precio, onDelete }) {
 
   return (
     <div className="listaDeLado">
+<<<<<<< HEAD
       <div className="animate__animated animate__bounceInLeft" id="products">
+=======
+      <div className="animate__animated animate__bounceInLeft" id="productos">
+>>>>>>> 3a4a834ca3ba96f0c5fe72af487f4c52927f7396
         <Link to={`/product/${id}`}>
           <div className="containerImg">
             <img className="imagen" src={link} alt={description} />
