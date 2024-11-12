@@ -11,7 +11,7 @@ function ProductDetail() {
     console.log("Fetching product with ID:", id);
 
     // Realiza la solicitud a la API de Flask
-    fetch(`http://127.0.0.1:5001/products/${id}`)
+    fetch(`http://127.0.0.1:5003/products/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

@@ -30,7 +30,7 @@ function App() {
       .then((data) => setProducts(data));
 
     // Fetch para marcas
-    fetch("http://127.0.0.1:5003/brands") // Asegúrate de que esta URL sea correcta
+    fetch("http://127.0.0.1:5000/brands") // Asegúrate de que esta URL sea correcta
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error al cargar las marcas");
@@ -69,7 +69,7 @@ function App() {
       return;
     }
   
-    fetch(`http://127.0.0.1:5000/products/${productId}`, {
+    fetch(`http://127.0.0.1:5001/products/${productId}`, {
       method: "DELETE",
     })
       .then((response) => {
