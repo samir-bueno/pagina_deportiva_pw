@@ -25,7 +25,7 @@ function App() {
     }
 
     // Fetch para productos
-    fetch("http://127.0.0.1:5000/products")
+    fetch("http://127.0.0.1:5001/products")
       .then((data) => data.json())
       .then((data) => setProducts(data));
 
