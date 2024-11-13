@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 
-function Body({ id, link, description, parrafo, precio}) {
-
+function BodyCopy({ id, link, description, parrafo, precio, onDelete }) {
+  const handleDelete = () => {
+    if (
+      window.confirm("¿Estás seguro de que quieres eliminar este producto?")
+    ) {
+      onDelete(id); // Llamamos a la función onDelete pasada como prop
+    }
+  };
 
   return (
     <div className="listaDeLado">
@@ -14,11 +20,14 @@ function Body({ id, link, description, parrafo, precio}) {
             <p className="num centrar">${precio}</p>
           </div>
         </Link>
-
+        {/* Botón para eliminar producto */}
+        <div className="delete-btn" onClick={handleDelete}>
+          <div className="line"></div>
+        </div>
       </div>
       <div></div>
     </div>
   );
 }
 
-export default Body;
+export default BodyCopy;

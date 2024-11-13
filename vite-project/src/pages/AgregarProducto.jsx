@@ -24,27 +24,27 @@ const AgregarProducto = () => {
   const fetchData = async () => {
     try {
       // Cargar categorías
-      const categoriesResponse = await fetch('http://127.0.0.1:5000/categories');
+      const categoriesResponse = await fetch('http://127.0.0.1:5002/categories');
       const categoriesData = await categoriesResponse.json();
       setCategories(categoriesData);
 
       // Cargar talles
-      const sizesResponse = await fetch('http://127.0.0.1:5000/sizes');
+      const sizesResponse = await fetch('http://127.0.0.1:5002/sizes');
       const sizesData = await sizesResponse.json();
       setSizes(sizesData);
 
       // Cargar colores
-      const colorsResponse = await fetch('http://127.0.0.1:5000/colors');
+      const colorsResponse = await fetch('http://127.0.0.1:5002/colors');
       const colorsData = await colorsResponse.json();
       setColors(colorsData);
 
       // Cargar marcas
-      const brandsResponse = await fetch('http://127.0.0.1:5000/brands');
+      const brandsResponse = await fetch('http://127.0.0.1:5002/brands');
       const brandsData = await brandsResponse.json();
       setBrands(brandsData);
 
       // Cargar años
-      const yearsResponse = await fetch('http://127.0.0.1:5000/years');  // Verifica la URL correcta
+      const yearsResponse = await fetch('http://127.0.0.1:5002/years');  // Verifica la URL correcta
       const yearsData = await yearsResponse.json();
       setYears(yearsData);
 

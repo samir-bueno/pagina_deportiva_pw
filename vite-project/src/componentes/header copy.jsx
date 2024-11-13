@@ -6,7 +6,7 @@ import loginIcon from "../assets/nueva-cuenta.png";
 import { Link } from "react-router-dom";
 import "./body"
 
-const Header = ({ userName, onSearch, onLogout }) => {
+const HeaderCopy = ({ userName, onSearch, onLogout }) => {
   const [isSearchOpen, setSearchOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isVisible, setVisible] = useState(true);
@@ -60,6 +60,9 @@ const Header = ({ userName, onSearch, onLogout }) => {
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
+      <Link to="/agregar-producto">
+        <img src={addIcon} alt="Agregar" className="icon" />
+      </Link>
 
       <div className="action-buttons">
         <img src={searchIcon} alt="Buscar" className="icon" onClick={() => setSearchOpen(true)} />
@@ -71,12 +74,14 @@ const Header = ({ userName, onSearch, onLogout }) => {
             <div className="user-icon" onClick={toggleUserMenu}>
               {userName.charAt(0).toUpperCase()} {/* Inicial del nombre del usuario */}
             </div>
+
             {/* Menú desplegable con la opción de Cerrar sesión */}
             {isMenuOpen && (
               <div className="logout-menu">
                 <button onClick={onLogout}>Cerrar sesión</button>
               </div>
             )}
+
           </div>
         ) : (
           <>
@@ -104,4 +109,4 @@ const Header = ({ userName, onSearch, onLogout }) => {
   );
 };
 
-export default Header;
+export default HeaderCopy;

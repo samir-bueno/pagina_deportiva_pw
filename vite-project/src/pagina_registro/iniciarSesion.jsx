@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./inicioSesion.css";  // Asegúrate de tener este archivo CSS en el directorio adecuado.
+import "./inicioSesion.css";
 
 const IniciarSesion = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +37,7 @@ const IniciarSesion = () => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5002/login", {
+      const response = await fetch("http://127.0.0.1:5001/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,15 @@ const IniciarSesion = () => {
         setSuccess("Inicio de sesión exitoso.");
         localStorage.setItem("usuario", JSON.stringify(result.usuario));
         setIsLoggedIn(true);
-        navigate("/");
+
+        // Verificar el rol del usuario para redirigir
+        if (result.usuario.Rol_ID === 2) {
+          // Si es admin (rol = 2), redirigir a /copy
+          navigate("/copy");
+        } else {
+          // Si es usuario normal (rol = 1), redirigir a la página principal
+          navigate("/");
+        }
       } else {
         setError(result.error || "Error en el inicio de sesión.");
       }
@@ -70,7 +78,6 @@ const IniciarSesion = () => {
     <div className="login-container">
       {isLoggedIn ? (
         <div className="user-icon-container">
-          {/* Muestra la inicial del usuario dentro de un ícono */}
           <div className="user-icon" onClick={() => setShowMenu(!showMenu)}>
             {formData.email.charAt(0).toUpperCase()}
           </div>

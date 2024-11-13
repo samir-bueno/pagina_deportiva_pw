@@ -1,10 +1,9 @@
 import "./App.css";
-import Body from "./componentes/body";
-import Footer from "./componentes/footer";
-import Header from "./componentes/header";
+import BodyCopy from "./componentes/body copy";
+import HeaderCopy from "./componentes/header copy";
 import React, { useEffect, useState } from "react";
 
-function App() {
+function AppCopy() {
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [query, setQuery] = useState("");
@@ -59,11 +58,42 @@ function App() {
   
 
   // Función para eliminar un producto
-
+  const handleDeleteProduct = (id) => {
+    // Asegúrate de que `id` sea un número
+    const productId = parseInt(id, 10);
   
-
+    if (isNaN(productId)) {
+      console.error("El ID del producto no es válido:", id);
+      alert("El ID del producto no es válido.");
+      return;
+    }
   
-
+    fetch(`http://127.0.0.1:5001/products/${productId}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Si la eliminación es exitosa, actualiza el estado para reflejar el cambio
+          setProducts(products.filter((product) => product.ID !== productId));
+          alert("Producto eliminado exitosamente");
+        } else {
+          alert("Error al eliminar el producto");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al eliminar el producto:", error);
+        alert("Error al eliminar el producto");
+      });
+  };
+  
+  const handleDelete = (id) => {
+    if (window.confirm("¿Estás seguro de que quieres eliminar este producto?")) {
+      handleDeleteProduct(id);
+    } else {
+      // El usuario canceló la eliminación, simplemente no hace nada y permanece en la misma página.
+      alert("La eliminación ha sido cancelada.");
+    }
+  };
   
   // En el componente Body
   <div className="delete-btn" onClick={() => handleDelete(id)}>
@@ -74,7 +104,7 @@ function App() {
 
   return (
     <>
-      <Header
+      <HeaderCopy
         userName={userName}
         onSearch={handleSearch}
         onLogout={handleLogout}
@@ -92,7 +122,7 @@ function App() {
           <div className="listaDeLado">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((item) => (
-                <Body
+                <BodyCopy
                   key={item.ID} // Asegúrate de usar el ID como clave única
                   id={item.ID} // Pasa el ID al componente
                   titulo={item.Name} // Asegúrate de que esto corresponda a tus datos
@@ -100,6 +130,7 @@ function App() {
                   description={item.Description}
                   parrafo={item.Name}
                   precio={item.Price}
+                  onDelete={handleDeleteProduct} // Pasa la función de eliminación al componente Body
                 />
               ))
             ) : (
@@ -132,4 +163,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppCopy;
