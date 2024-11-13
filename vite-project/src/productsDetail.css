@@ -3,19 +3,25 @@
   padding: 20px; /* Espaciado interno */
   background-color: #f9f9f9; /* Fondo claro */
   border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px; /* Esto asegura que 1 rem = 16px */
+  color: #333; /* Color general de texto */
+  line-height: 1.6; /* Espaciado general entre líneas */
 }
 
 h1 {
-  font-size: 2.5rem; /* Tamaño del encabezado */
-  margin-bottom: 20px; /* Espaciado inferior */
-  color: #333; /* Color del texto */
+  font-size: 2rem; /* 32px si 1 rem = 16px */
 }
+
 
 .img {
   max-width: 100%; /* Imagen responsiva */
   height: auto; /* Mantener la proporción */
-  border-radius: 4px; /* Bordes redondeados en la imagen */
+  border-radius: 8px;
   margin-bottom: 20px; /* Espaciado inferior */
 }
 
@@ -34,19 +40,21 @@ p {
 }
 
 .product-container {
-  display: flex; /* Usar flexbox para el diseño */
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten si no caben */
+  gap: 20px; /* Añade espacio entre los elementos */
 }
 
-.product-imagenes {
-  width: 700px; /* Ancho fijo */
-  height: auto; /* Mantener proporción */
-  margin-bottom: 20px; /* Espaciado inferior */
-  margin-right: 20px;
+.product-imagenes, .product-info {
+  width: 48%; /* Toma el 48% del ancho de su contenedor, dejando espacio para el gap */
 }
 
-.product-info {
-  flex: 1; /* Permitir que el texto use el espacio restante */
+@media (max-width: 768px) {
+  .product-imagenes, .product-info {
+    width: 100%; /* En pantallas pequeñas, cada bloque ocupa el 100% del ancho */
+  }
 }
+
 
 .product-info h1 {
   font-size: 2.5rem; /* Tamaño del encabezado */

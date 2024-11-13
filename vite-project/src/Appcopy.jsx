@@ -2,12 +2,17 @@ import "./App.css";
 import BodyCopy from "./componentes/body copy";
 import HeaderCopy from "./componentes/header copy";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 function AppCopy() {
   const [products, setProducts] = useState([]);
   const [brands, setBrands] = useState([]);
   const [query, setQuery] = useState("");
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
+
 
   // Filtrar productos solo si hay un término de búsqueda
   const filteredProducts = query
@@ -29,7 +34,7 @@ function AppCopy() {
       .then((data) => setProducts(data));
 
     // Fetch para marcas
-    fetch("http://127.0.0.1:5009/brands") // Asegúrate de que esta URL sea correcta
+    fetch("http://127.0.0.1:5004/brands") // Asegúrate de que esta URL sea correcta
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error al cargar las marcas");
@@ -53,6 +58,7 @@ function AppCopy() {
   const handleLogout = () => {
     setUserName(""); // Elimina el nombre del usuario del estado
     localStorage.removeItem("usuario"); // Elimina el usuario de localStorage
+    navigate("/");
   };
 
   
